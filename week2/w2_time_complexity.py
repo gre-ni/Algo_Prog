@@ -8,9 +8,9 @@ else:
 # (2)
 n = int(input())
 x = 1
-for i in range(n):
-    for j in range(i): # Pozor!
-        x = 1 - x
+for i in range(n): # n + 1
+    for j in range(i): # n (outer loop) * triangular n(n + 1) / 2 -> 
+        x = 1 - x # same as above minus one truth check
 print(x)
 
 # (3)
