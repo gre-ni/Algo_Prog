@@ -94,3 +94,43 @@ Od nejpomaleji k nerychleji rostouci:
 3. O(n)
 4. O(n^2)
 5. O(n^3)
+
+### O(1) roste ostre pomaleji nez O(log n)
+
+$1 \in O(\log{n})$
+
+- blabla
+
+$\log{n} \notin O(1)$
+
+- blabla
+
+### O(log n) roste ostre pomaleji nez O(n)
+
+$\log{n} \in O(n)$
+
+- blabla
+
+$n \notin O(\log{n})$
+
+- blabla
+
+### O(n) roste ostre pomaleji nez O($n^2$)
+
+$n \in O(n^2)$
+
+- blabla
+
+$n^2 \notin O(n)$
+
+- blabla
+
+### O($n^2$) roste ostre pomaleji nez O($n^3$)
+
+$n^2 \in O(n^3)$
+
+- blabla
+
+$n^3 \notin O(n^2)$
+
+- blabla
