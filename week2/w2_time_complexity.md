@@ -99,11 +99,19 @@ Od nejpomaleji k nerychleji rostouci:
 
 $1 \in O(\log{n})$
 
-- blabla
+- _Existuji c, $n_0$ takova, ze **1 $\leq$ c \* log n**, pro vsechna $n \geq n_0$._
+- (Pouzijeme $log_2$)
+- Zvolime: c = 1, $n_0$ = 2 --> $1 \leq 1 * \log_2{}2 = 1$
+- Pro $n \geq 2$: 1 = $\log_2{}2 \leq 1 * \log_2{n}$
+- $\log_2{n}$ bude pro vyssi n rostouci, tj. nerovnost plati
 
 $\log{n} \notin O(1)$
 
-- blabla
+- _Pro vsechna c, $n_0$, existuje n > $n_0$, pro ktere plati **log n > c \* 1**._
+- Aby platil $\log_2{n}$ > c, muzeme vybrat n = $2^{c + 1}$ (--> c + 1 > c)
+- $2^{c + 1}$ ale muze teoreticky byt mensi nez $n_0$
+- Proto n = max($2^{c + 1}$, $n_0$), aby bylo zaruceno ze n je minimalne $n_0$
+- Pro $n \geq 2^{c + 1}$ muzeme vzhledem k rostouci vlastnosti logaritmu rict, ze $\log_2{n}$ > c
 
 ### O(log n) roste ostre pomaleji nez O(n)
 
