@@ -117,11 +117,19 @@ $\log{n} \notin O(1)$
 
 $\log{n} \in O(n)$
 
-- blabla
+- _Existuji c, $n_0$ takova, ze **log n $\leq$ c \* n**, pro vsechna $n \geq n_0$._
+- Zvolime c = 1, $n_0$ = 1
+- $\log_2{n} \leq n$
+- Po uprave $2^{\log_2{n}} \leq 2^n$ --> $n \leq 2^n$
+- Pro $n \geq 1$: pri rustu n je leva strana linearni, zatimco prava exponencialni, proto nerovnost plati
 
 $n \notin O(\log{n})$
 
-- blabla
+- _Pro vsechna c, $n_0$, existuje n > $n_0$, pro ktere plati **n > c \* log n**._
+- Pri $n = 2^{2c}$ dostaneme nerovnost $2^{2c} > c * \log_2{2^{2c}}$, tj. $2^{2c} > c * 2c$
+- (I kdyz $2^c$ je vetsi nez 2c pro vetsinu cisel, v ramci tohoto trvzeni musime pokryt i mala cisla 1-5, proto $2^{2c}$.)
+- Abychom splinili n > $n_0$, zvolime n = max($2^{2c}, n_0$)
+- Pro $n \geq 2^{2c}$ proto bude platit, ze n roste rychleji nez $c * \log_2{n}$, tzn. $n > c * \log_2{n}$.
 
 ### O(n) roste ostre pomaleji nez O($n^2$)
 
