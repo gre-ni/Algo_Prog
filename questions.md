@@ -1,0 +1,3 @@
+- What are the cases when I have to be alert/careful to make a copy for new variable?
+- Look into shallow versus deep copy
+-
