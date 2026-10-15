@@ -45,7 +45,7 @@ while i < n: # exponential
 -> $O(\log{n})$
 
 - i bude rust mnohem rychleji nez n, prvni loop 3, pak 3\*3, ...potka n v nejake hodnote $3^k$
-- Aby se cyklus zastavil, $n \geq 3^k$, z toho vyvodime hranicni k hodnotu $\log_3{n}$, po odebrani konstanty log n
+- Aby se cyklus zastavil, $3^k \geq n$, z toho vyvodime hranicni k hodnotu $\log_3{n}$, po odebrani konstanty log n
 
 #### (4)
 
@@ -81,7 +81,7 @@ while n > 0: # ekvivalent i = n; i > 0; i=i/2
 -> $O(n)$
 
 - Vnejsi loop: od n do 0, po krocich n = n // 2 -> v podstate totez jako pocitat smerem nahoru a nasobit \* 2, tj. exponencialni, log n
-- Aby se potkala stop condition: $\frac{n}{2^k} = 0$ -> $n = 2^k$ -> $\log_2{n}$
+- Aby se potkala stop condition: $\frac{n}{2^k} = 1$ -> $n = 2^k$ -> $\log_2{n}$ (technicky +1 krok na 0)
 - Vnitrni cyklus je zavisly na menicim se n taky, kde reprezentuje pocet operaci kazdeho pruchodu, tj. $n + \frac{n}{2} + \frac{n}{4} + ... + \frac{n}{2^k}$ -> suma tohoto bude mene nez 2n
 - Mezi log n a n je vyssiho radu n
 
@@ -107,7 +107,7 @@ $1 \in O(\log{n})$
 
 $\log{n} \notin O(1)$
 
-- _Pro vsechna c, $n_0$, existuje n > $n_0$, pro ktere plati **log n > c \* 1**._
+- _Pro vsechna c, $n_0$, existuje n $\geq$ $n_0$, pro ktere plati **log n > c \* 1**._
 - Aby platil $\log_2{n}$ > c, muzeme vybrat n = $2^{c + 1}$ (--> c + 1 > c)
 - $2^{c + 1}$ ale muze teoreticky byt mensi nez $n_0$
 - Proto n = max($2^{c + 1}$, $n_0$), aby bylo zaruceno ze n je minimalne $n_0$
@@ -125,28 +125,38 @@ $\log{n} \in O(n)$
 
 $n \notin O(\log{n})$
 
-- _Pro vsechna c, $n_0$, existuje n > $n_0$, pro ktere plati **n > c \* log n**._
-- Pri $n = 2^{2c}$ dostaneme nerovnost $2^{2c} > c * \log_2{2^{2c}}$, tj. $2^{2c} > c * 2c$
+- _Pro vsechna c, $n_0$, existuje n $\geq$ $n_0$, pro ktere plati **n > c \* log n**._
+- Pri zvoleni $n = 2^{2c}$ dostaneme nerovnost $2^{2c} > c * \log_2{2^{2c}}$, tj. $2^{2c} > c * 2c$
 - (I kdyz $2^c$ je vetsi nez 2c pro vetsinu cisel, v ramci tohoto trvzeni musime pokryt i mala cisla 1-5, proto $2^{2c}$.)
-- Abychom splinili n > $n_0$, zvolime n = max($2^{2c}, n_0$)
+- Abychom splinili n $\geq$ $n_0$, zvolime n = max($2^{2c}, n_0$)
 - Pro $n \geq 2^{2c}$ proto bude platit, ze n roste rychleji nez $c * \log_2{n}$, tzn. $n > c * \log_2{n}$.
 
 ### O(n) roste ostre pomaleji nez O($n^2$)
 
 $n \in O(n^2)$
 
-- blabla
+- _Existuji c, $n_0$ takova, ze **n $\leq$ c \* $n^2$**, pro vsechna $n \geq n_0$._
+- Zvolime c = 1, $n_0$ = 1.
+- Pro $n \geq 1$: $n = n * 1 \leq n * n = n^2$
 
 $n^2 \notin O(n)$
 
-- blabla
+- _Pro vsechna c, $n_0$, existuje n $\geq$ $n_0$, pro ktere plati **$n^2$ > c \* n**._
+- Pokud zvolime n = c + 1, dostaneme $(c + 1)^2 > c * (c+1)$, coz je po vydelenim obou stran: c + 1 > c.
+- Abychom zachovali n $\geq$ $n_0$, zvolime n = max($(c + 1), n_0$).
+- Pro $n \geq (c+1)$ bude platit n > c, coz po vynasobenim kladnym n potvrzuje vztah $n^2$ > c \* n.
 
 ### O($n^2$) roste ostre pomaleji nez O($n^3$)
 
 $n^2 \in O(n^3)$
 
-- blabla
+- _Existuji c, $n_0$ takova, ze **$n^2$ $\leq$ c \* $n^3$**, pro vsechna $n \geq n_0$._
+- Zvolime c = 1, $n_0$ = 1.
+- Pro $n \geq 1$: $n^2 = n * n * 1 \leq n * n * n = n^3$.
 
 $n^3 \notin O(n^2)$
 
-- blabla
+- _Pro vsechna c, $n_0$, existuje n $\geq$ $n_0$, pro ktere plati **$n^3$ > c \* $n^2$**._
+- Pokud zvolime n = c + 1, dostaneme $(c + 1)^3 > c * (c+1)^2$, coz je po vydelenim obou stran: c + 1 > c.
+- Pro zachovani n $\geq$ $n_0$, zvolime n = max($(c + 1), n_0$).
+- Pro $n \geq (c+1)$ plati n > c, coz po vynasobenim $n^2$ znamena $n^3$ > c \* $n^2$.
