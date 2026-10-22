@@ -8,7 +8,6 @@ def guess(number: int):
         if guess == number:
             break   
 
-
 nums = [int(x) for x in input().split()] # list comprehension for cycles
 
 def main():
