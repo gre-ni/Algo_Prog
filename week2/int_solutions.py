@@ -7,7 +7,6 @@ def find_factors(n):
     """
     Finds factors of a number. 
     Factors of 0 returns None, as there are infinitely many variants.
-    Numbers with no factors.
     """
     factors = []
     sign = 1
@@ -23,8 +22,8 @@ def find_factors(n):
 
     for i in range(1, floor(sqrt(n)) + 1):
         if n % i == 0: # For all factors
-            if (n // i == i): # Same number twice
-                factors.append([i*sign, i*sign])
+            if (n // i == i) and sign == 1: # Same positive number twice
+                factors.append([i, i])
 
             elif (sign < 0): # Extra factors for negative numbers
                 factors.append([i, (n // i)*sign])
@@ -34,6 +33,7 @@ def find_factors(n):
                 factors.append([i*sign, n // i])
                 factors.append([n // i, i*sign])
 
+    # print(factors)
     return factors
 
 def main():
@@ -44,7 +44,8 @@ def main():
     # Handle zero and end early in that case
     if b == 0:
         print(f"X = {a}, Y = {b}")
-        print(f"X = {b}, Y = {a}")
+        if a != 0:
+            print(f"X = {b}, Y = {a}")
         return
     
     # Handle every other case
