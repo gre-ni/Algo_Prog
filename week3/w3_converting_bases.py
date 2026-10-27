@@ -19,3 +19,13 @@
 # 0.isdigit() to find out numeric
 
 # Stringy muzeme pouzivat 
+
+def text_to_number(digits: str, base: int) -> int:
+    total = 0
+    # For now just for base 2, for 1011 example
+    for i in range(len(digits)):
+        total += int(digits[i]) * (base ** (len(digits) - 1 - i))
+        print(total)
+    return total
+
+print(text_to_number("1011", 2))
