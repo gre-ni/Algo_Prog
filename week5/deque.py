@@ -1,3 +1,6 @@
+INITIAL_CAPACITY = 10
+
+
 class Deque:
     '''
     Deque implements a double-ended queue with amortized
@@ -8,17 +11,6 @@ class Deque:
         '''
         Creates an empty queue with initial capacity of 10.
         '''
-        # Hint: Pokud chceme efektivně přidávat prvky na konec i na začátek fronty,
-        # můžeme se na seznam dívat jako na smyčku: jakmile se dostaneme na konec, další
-        # prvek je ten na začátku.
-        #
-        # Např. pokud máme v seznamu tyto hodnoty (_ označuje prázdné sloty)
-        #  [_,_,_,_,1,2,3,4]
-        # a chceme přidat číslo 5 na konec *fronty*, tak seznam nemusíme nafukovat,
-        # stačí místo toho přidat 5 na začátek *seznamu*:
-        #  [5,_,_,_,1,2,3,4]
-        #
-        # Aby tohle fungovalo, tak si musíte pamatovat, kde prvky začínají a končí.
         self._array = [None] * INITIAL_CAPACITY
         self._start = 0 # Pozice prvního prvku fronty
         self._size = 0 # Počet prvků ve frontě
@@ -35,25 +27,44 @@ class Deque:
 
     # Tady se vám mohou hodit nějaké pomocné metody: přístup k prvku,
     # přiřazení prvku, nafouknutí fronty.
+    
+    def get(self, n):
+        return (n + self._size) % len(self._array)
+    
+    def set(self):
+        pass
+    
+    def end(self):
+        '''
+        Returns position of last element in the array
+        '''
+        return (self._start + self._size) % len(self._array)
 
     def size(self):
         '''
         Returns the number of elements currently in the deque.
         '''
-        
+        return self._size
+    
+    def _expand(self):
+        pass
 
     def push_front(self, value):
         '''
         Adds a new value to the start of the queue.
         '''
         # Pokud je fronta plná, tak ji nejdříve musíte nafouknout.
-        pass
+        if self._size == len(self._array):
+            self._expand()
+        
 
     def push_back(self, value):
         '''
         Adds a new value to the end of the queue.
         '''
-        self._array[self._size] = value
+        if self._size == len(self._array):
+            self._expand()
+        self._array[self.end()] = value
         self._size += 1
 
         # Pokud je fronta plná, tak ji nejdříve musíte nafouknout.

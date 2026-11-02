@@ -38,8 +38,3 @@ def ascending(seq):
             return False
     
     return True
-    
-def lottery(start, end, count):
-    
-
-
