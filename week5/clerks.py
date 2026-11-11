@@ -41,12 +41,11 @@ def main():
         
     # print(cycles)
 
-    # Get lengths of all cycles as an array
-    lengths = []
-    for i in range(1, label + 1):
-        n = cycles.count(i)
-        if n: # skip unused labels
-            lengths.append(n)
+    # Get lengths of all cycles as an array, remove empty labels
+    lengths = (label + 1) * [0]
+    for c in cycles:
+        lengths[c] += 1 
+    lengths = [x for x in lengths if x]
 
     # Calculate lcm over all lengths
     result = lengths[0]
